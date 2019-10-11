@@ -1,0 +1,67 @@
+// Variables
+//------------------------------------------------------
+$breadcrumb-font-color:                         $darkgray-dark !default;
+$breadcrumb-link-color:                         $aqua-dark !default;
+$breadcrumb-background-color:                   $lightgray-dark !default;
+$breadcrumb-background-color-transparent:       rgba(230, 233, 237, .6);
+
+$breadcrumb-arrow-radius:                       4px !default;
+$breadcrumb-max-width:                          $medium-start - 1;
+
+// Exports
+//------------------------------------------------------
+@include exports("breadcrumb") {
+
+    .gs-breadcrumb {
+        color: $breadcrumb-font-color;
+        background-color: $breadcrumb-background-color;
+        padding: 8px 15px;
+        list-style: none;
+        border-radius: $breadcrumb-arrow-radius;
+
+        > li+li:before {
+            padding: 0 5px;
+            color: #ccc;
+            content: "/\00a0";
+        }
+    }
+
+    .gs-breadcrumb__list-item {
+        display: inline-block;
+    }
+
+    .gs-breadcrumb__list-item_active {
+        color: $darkgray-dark;
+    }
+
+    .gs-breadcrumb__link {
+        color: $breadcrumb-link-color;
+    }
+
+    .gs-breadcrumb__hidden-small-text {
+        display: inline;
+
+        @media (max-width: $breadcrumb-max-width) {
+            display: none;
+        }
+    }
+
+    .gs-breadcrumb__visible-small-text {
+        display: none;
+
+        @media (max-width: $breadcrumb-max-width) {
+            display: inline;
+        }
+    }
+
+    .gs-breadcrumb_margin-right-left {
+        margin-left: 60px;
+        margin-right: 15px;
+    }
+
+    .gs-breadcrumb_bg-color-transparency {
+        background-color: $breadcrumb-background-color-transparent;
+    }
+}
+
+
